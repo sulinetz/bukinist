@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спутник-букинист — антикварный книжный магазин в Москве</title>
+    <meta name="description" content="Редкие и антикварные книги, скупка и онлайн-аукционы. Ленинский проспект 32, Москва.">
+    
+    <!-- Стили сайта (CSS) -->
+    <style>
+        /* Основные стили и переменные */
+        :root {
+            --primary-color: #5d4037; /* Коричневый */
+            --secondary-color: #f5f5f5; /* Светло-серый фон */
+            --dark-color: #3e2723; /* Темно-коричневый */
+            --text-color: #333;
+            --font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Garamond', serif; /* Более классический шрифт */
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: var(--dark-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Навигация */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        .nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-color);
+            padding: 1rem 0;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav ul li a {
+            padding: 1.5rem 1rem;
+            display: block;
+            transition: background 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav ul li a:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Первый экран */
+        .hero {
+            height: 85vh;
+            /* ВАЖНО: Замените 'images/hero-background.jpg' на путь к вашему главному фото */
+            background: url('https://sun9-38.userapi.com/fGtw0UgZ_VtUigLoREnzXVR2BUNLB1K8ld0r7Q/TNC6JW_t624.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after { /* Затемнение для читаемости текста */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            margin: 1rem 0.5rem;
+            transition: background 0.3s, transform 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+        }
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark-color);
+        }
+
+        /* Общие секции */
+        .section-subtitle {
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* О магазине */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            text-align: left;
+        }
+        .about-text { flex: 1; }
+        .about-gallery { 
+            flex: 1; 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .about-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .about-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Каталог */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        .card p {
+            margin: 0 0 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .price {
+            display: block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        /* Скупка */
+        .buyback-info {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .email-link {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Отзывы */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            text-align: left;
+        }
+        .review-card {
+            background: #fff;
+            padding: 2rem;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+        }
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .review-card span {
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Контакты */
+        .contact-content {
+            display: flex;
+            gap: 3rem;
+            text-align: left;
+        }
+        .contact-info { flex: 1; }
+        .contact-map { flex: 1; border-radius: 8px; overflow: hidden;}
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        /* Подвал */
+        .footer {
+            background: var(--dark-color);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        .footer a {
+            color: #fff;
+            font-weight: bold;
+        }
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Адаптивность для мобильных */
+        @media(max-width: 768px) {
+            .nav {
+                flex-direction: column;
+            }
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav ul li a {
+                padding: 0.8rem;
+            }
+
+            h2 { font-size: 2rem; }
+            .hero { height: 70vh; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .container { padding: 3rem 1rem; }
+
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Спутник-букинист</div>
+            <ul>
+                <li><a href="#about">О магазине</a></li>
+                <li><a href="#catalog">Каталог</a></li>
+                <li><a href="#auction">Аукционы</a></li>
+                <li><a href="#buyback">Скупка</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ======== ПЕРВЫЙ ЭКРАН ======== -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Букинистический магазин «Спутник-букинист»</h1>
+                <p>Редкие книги рядом. Работаем для вас 10 лет.</p>
+                <div class="hero-buttons">
+                    <a href="#catalog" class="btn">Смотреть каталог</a>
+                    <a href="#buyback" class="btn btn-secondary">Сдать книги</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== О МАГАЗИНЕ ======== -->
+        <section class="container" id="about">
+            <h2>10 лет на страже редких книг</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>«Спутник-букинист» — это не просто книжный магазин, а настоящий клуб для ценителей. Уже 10 лет мы помогаем находить редкие и антикварные издания, книги с автографами и просто любимые с детства истории.</p>
+                    <p>На наших полках соседствуют классика и современная литература, детские книги и научные труды. Мы верим, что у каждой книги есть своя душа и своя история, и наша задача — найти для нее нового читателя.</p>
+                </div>
+                <div class="about-gallery">
+                    <!-- ВАЖНО: Замените 'images/...' на имена ваших файлов в папке 'images' -->
+                    <img src="images/image1.jpg" alt="Интерьер магазина Спутник-букинист">
+                    <img src="images/image4.jpg" alt="Книжные полки">
+                    <img src="images/image3.jpg" alt="Детали интерьера">
+                    <img src="images/image2.jpg" alt="Вход в магазин">
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== КАТАЛОГ ======== -->
+        <section class="container" id="catalog" style="background-color: #fff;">
+            <h2>Чем мы гордимся</h2>
+            <p class="section-subtitle">Это лишь малая часть наших сокровищ. Полный каталог из тысяч книг доступен на <a href="https://www.alib.ru/bs.php4?bs=Sputnik" target="_blank">Alib.ru</a>.</p>
+            <div class="catalog-grid">
+                <!-- Пример карточки товара. Скопируйте блок div.card и вставьте сколько нужно. -->
+                <div class="card">
+                    <!-- ВАЖНО: Замените 'images/...' на фото ваших книг -->
+                    <img src="https://placehold.co/400x500/a1887f/FFFFFF?text=Обложка+книги" alt="Обложка книги">
+                    <div class="card-content">
+                        <h3>Название книги</h3>
+                        <p>Автор, год, состояние</p>
+                        <span class="price">1500 ₽</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://placehold.co/400x500/8d6e63/FFFFFF?text=Обложка+книги" alt="Обложка книги">
+                    <div class="card-content">
+                        <h3>Другая редкая книга</h3>
+                        <p>Автор, год, состояние</p>
+                        <span class="price">2300 ₽</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://placehold.co/400x500/bcaaa4/FFFFFF?text=Обложка+книги" alt="Обложка книги">
+                    <div class="card-content">
+                        <h3>Детская классика</h3>
+                        <p>Автор, год, состояние</p>
+                        <span class="price">900 ₽</span>
+                    </div>
+                </div>
+                 <div class="card">
+                    <img src="https://placehold.co/400x500/795548/FFFFFF?text=Обложка+книги" alt="Обложка книги">
+                    <div class="card-content">
+                        <h3>Книга с автографом</h3>
+                        <p>Автор, год, состояние</p>
+                        <span class="price">5000 ₽</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== АУКЦИОНЫ ======== -->
+        <section class="container" id="auction">
+            <h2>Онлайн-аукционы GagarinSquare</h2>
+            <p class="section-subtitle">Под именем <b>GagarinSquare</b> мы регулярно проводим онлайн-торги на платформе Bidspirit. Это ваш шанс приобрести уникальные малотиражные издания, документы и автографы.</p>
+            <a href="https://ru.bidspirit.com/ui/houses/gagarinsquare,false?lang=ru" target="_blank" class="btn">Участвовать в аукционе</a>
+        </section>
+
+        <!-- ======== СКУПКА ======== -->
+        <section class="container" id="buyback" style="background-color: #fff;">
+            <h2>Хотите продать книги?</h2>
+            <p class="section-subtitle">Мы покупаем книги или берем на комиссию. Проще всего — прислать информацию нам на почту.</p>
+             <div class="buyback-info">
+                <div class="hero-buttons">
+                    <a href="mailto:gagarinsquare@yandex.ru" class="btn">Написать на почту</a>
+                    <a href="tel:84991371371" class="btn">Позвонить</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== ОТЗЫВЫ ======== -->
+		<section class="container" id="reviews">
+            <h2>Что о нас говорят читатели</h2>
+            <div class="reviews-grid">
+                <script src="https://res.smartwidgets.ru/app.js" defer></script>
+				<div class="sw-app" data-app="7d1907a13f1c46fa855ab3a52b9db576"></div>
+            </div>
+        </section>
+
+        <!-- ======== КОНТАКТЫ ======== -->
+        <section class="container" id="contacts" style="background-color: #fff;">
+            <h2>Ждем вас в гости</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><b>Адрес:</b> г. Москва, Ленинский проспект 32, 2-й этаж</p>
+                    <p><b>Ориентир:</b> Внутри магазина «Панорама Спорт»</p>
+                    <p><b>Метро:</b> «Ленинский проспект» / «Площадь Гагарина» (5-6 мин)</p>
+                    <p><b>Телефон:</b> <a href="tel:+74991371371">+7 499 137-13-71</a></p>
+                    <p><b>Email:</b> <a href="mailto:gagarinsquare@yandex.ru">gagarinsquare@yandex.ru</a></p>
+                    <p><b>Время работы:</b> Вт-Сб: 11:15 – 20:00 (Пн, Вс: выходной)</p>
+                </div>
+                <div class="contact-map">
+                    <!-- Это интерактивная карта от Яндекс.Карт -->
+					<div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.ru/maps/213/moscow/?ll=37.580019%2C55.709178&mode=routes&rtext=~55.709178%2C37.580019&rtt=bc&ruri=~&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Ленинский проспект, 32: как доехать на автомобиле, общественным транспортом или пешком – Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=37.580019%2C55.709178&mode=routes&rtext=~55.709178%2C37.580019&rtt=bc&ruri=~&z=17" width="500" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© «Спутник-букинист», 2014–2025. Все права защищены.</p>
+        <p>
+            <a href="https://www.alib.ru/bs.php4?bs=Sputnik" target="_blank">Мы на Alib.ru</a> | 
+            <a href="https://ru.bidspirit.com/portal/#!/user/GagarinSquare" target="_blank">Аукционы на Bidspirit</a>
+        </p>
+    </footer>
+
+</body>
+</html>

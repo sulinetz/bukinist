@@ -1,0 +1,6 @@
+{
+  "name": "Remix: Sputnik Bukinist",
+  "description": "Official landing page for Sputnik Bukinist and Gagarinsquare Auction House located at Leninsky Prospekt 32, Moscow. Features rare book cataloging and AI-assisted appraisal inquiries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

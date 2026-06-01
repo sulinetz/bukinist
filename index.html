@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Спутник Букинист | Ленинский 32</title>
+    <meta name="description" content="Антикварный салон Спутник и аукционный дом Gagarinsquare. Редкие книги, автографы, оценка и покупка антиквариата в Москве.">
+    <script>
+      // Suppress harmless ResizeObserver loop limit errors
+      window.addEventListener('error', (e) => {
+        if (
+          e.message && 
+          (e.message.includes('ResizeObserver loop completed with undelivered notifications') || 
+           e.message.includes('ResizeObserver loop limit exceeded'))
+        ) {
+          e.stopImmediatePropagation();
+        }
+      });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: '#141B2D', // Deep Navy from the card background
+                primary: '#C5A572', // Bronze/Gold from the satellite lines
+                secondary: '#94A3B8', // Muted silver/blue for secondary text
+                accent: '#F59E0B', // Bright gold for calls to action
+                paper: '#F8FAFC', // Cool white/silver paper (Moon surface tone)
+                surface: '#1E293B', // Slightly lighter navy for cards
+                text: '#0F172A', // Dark slate for reading text
+              }
+            },
+            fontFamily: {
+              serif: ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
+              sans: ['Inter', 'Montserrat', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            backgroundImage: {
+              'space-gradient': 'linear-gradient(to bottom, #141B2D, #0F172A)',
+              'gold-gradient': 'linear-gradient(135deg, #C5A572 0%, #E5C590 100%)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #141B2D;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #C5A572;
+      }
+      
+      /* Cosmic animations */
+      @keyframes orbit {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .animate-orbit {
+        animation: orbit 20s linear infinite;
+      }
+      .animate-orbit-slow {
+        animation: orbit 60s linear infinite;
+      }
+      
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "url": "https://aistudiocdn.com/url@^0.11.4",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "fs": "https://aistudiocdn.com/fs@^0.0.1-security"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-paper text-brand-text font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

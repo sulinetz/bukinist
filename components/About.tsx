@@ -48,26 +48,22 @@ const About: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <img 
                 src="/about_library.jpg" 
-                alt="Antique Bookshelves and Rare Library" 
-                referrerPolicy="no-referrer"
-                className="rounded-sm shadow-xl w-full h-[400px] object-cover mt-12"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/400x600/1e293b/C5A572?text=Antique+Library';
-                }}
+				alt="Antique Bookshelves and Rare Library" 
+				referrerPolicy="no-referrer"
+				className="rounded-sm shadow-xl w-full h-[400px] object-cover mt-12"
+                
               />
               <img 
                 src="/about_gavel.jpg" 
-                alt="Wooden Auction Gavel" 
-                referrerPolicy="no-referrer"
-                className="rounded-sm shadow-xl w-full h-[400px] object-cover mb-12"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://placehold.co/400x600/1e293b/C5A572?text=Auction+Gavel';
-                }}
+				alt="Wooden Auction Gavel" 
+				referrerPolicy="no-referrer"
+				className="rounded-sm shadow-xl w-full h-[400px] object-cover mb-12"
+                
               />
             </div>
             {/* Decorative circle */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-brand-primary rounded-full flex items-center justify-center text-brand-paper text-center p-4 font-serif font-bold shadow-2xl border-4 border-brand-paper z-10">
-              Est. <br/> 20XX
+              Est. <br/> 2015
             </div>
           </div>
 

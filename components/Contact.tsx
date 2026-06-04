@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-brand-dark mb-1">Адрес</h4>
                   <p className="text-gray-600">Москва, Ленинский проспект, 32</p>
-                  <p className="text-sm text-gray-500 mt-1">Вход с проспекта, историческая вывеска.</p>
+                  <p className="text-sm text-gray-500 mt-1">Вход с проспекта, вывеска "Панорама спорт", второй этаж.</p>
                 </div>
               </div>
 
@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-dark mb-1">Телефон</h4>
-                  <a href="tel:+74951234567" className="text-gray-600 hover:text-brand-primary transition-colors">+7 (495) 952-XX-XX</a>
+                  <a href="tel:+74951234567" className="text-gray-600 hover:text-brand-primary transition-colors">+7 (499) 137-13-71</a>
                   <p className="text-xs text-gray-500">Звоните для оценки книг</p>
                 </div>
               </div>
@@ -55,8 +55,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-dark mb-1">Режим работы</h4>
-                  <p className="text-gray-600">Пн-Сб: 11:00 — 20:00</p>
-                  <p className="text-gray-600">Вс: 11:00 — 18:00</p>
+                  <p className="text-gray-600">Пн-Сб: 11:15 — 20:00</p>
                 </div>
               </div>
 
@@ -66,7 +65,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-brand-dark mb-1">Почта</h4>
-                  <a href="mailto:info@bs-sputnik.ru" className="text-gray-600 hover:text-brand-primary transition-colors">info@bs-sputnik.ru</a>
+                  <a href="mailto:bs-sputnik@mail.ru" className="text-gray-600 hover:text-brand-primary transition-colors">bs-sputnik@mail.ru</a>
                 </div>
               </div>
             </div>
